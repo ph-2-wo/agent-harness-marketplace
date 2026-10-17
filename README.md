@@ -13,11 +13,12 @@ APM は Microsoft 製の OSS で、agent 向けの skill・instruction などを
 | [agent-base-plugin](packages/agent-base-plugin/README.md) | 一切の依存を持たない、他 skill の土台になる skill |
 | [communication-plugin](packages/communication-plugin/README.md) | 説明・報告など、ユーザーへ何をどう伝えるかの skill |
 | [review-plugin](packages/review-plugin/README.md) | 模倣・ドキュメント・文書の最小化・skill の各種 review skill |
-| [dev-workflow-plugin](packages/dev-workflow-plugin/README.md) | 検討・設計・指示の管理・承認の求め方など、仕事の進め方の skill |
+| [dev-workflow-plugin](packages/dev-workflow-plugin/README.md) | 検討・設計・指示の管理など、仕事の進め方の skill |
 | [facilitation-plugin](packages/facilitation-plugin/README.md) | 振り返り会など、人と進める会の進め方の skill |
 | [harness-dev-plugin](packages/harness-dev-plugin/README.md) | ハーネス（CLAUDE.md・skill・hook）そのものを書く skill |
 | [git-plugin](packages/git-plugin/README.md) | commit・PR の切り方の skill |
 | [apm-dev-plugin](packages/apm-dev-plugin/README.md) | APM の機構に固有の skill 開発手順 |
+| [next-action-plugin](packages/next-action-plugin/README.md) | 承認を求める事項を、応答の末尾に番号付きで書く skill |
 
 ## Install APM CLI
 

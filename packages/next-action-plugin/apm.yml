@@ -1,0 +1,16 @@
+name: next-action-plugin
+version: 0.1.0
+description: 承認を求める事項を、応答の末尾に番号付きの「ネクストアクション」として書く skill を提供
+author: ph-2-wo
+license: MIT
+targets:
+  - claude
+
+dependencies:
+  apm:
+    - path: ../dev-workflow-plugin
+  mcp: []
+includes: auto
+devDependencies:
+  apm: []
+scripts: {}

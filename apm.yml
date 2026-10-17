@@ -37,7 +37,7 @@ marketplace:
     - name: dev-workflow-plugin
       source: ./packages/dev-workflow-plugin
       version: 0.1.0
-      description: 検討・設計・指示の管理・承認の求め方など、仕事の進め方の skill を提供
+      description: 検討・設計・指示の管理など、仕事の進め方の skill を提供
     - name: facilitation-plugin
       source: ./packages/facilitation-plugin
       version: 0.1.0
@@ -54,3 +54,7 @@ marketplace:
       source: ./packages/apm-dev-plugin
       version: 0.1.0
       description: APM package/skill 開発用の skill を提供
+    - name: next-action-plugin
+      source: ./packages/next-action-plugin
+      version: 0.1.0
+      description: 承認を求める事項を、応答の末尾に番号付きの「ネクストアクション」として書く skill を提供

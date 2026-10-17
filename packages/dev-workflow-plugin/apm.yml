@@ -1,6 +1,6 @@
 name: dev-workflow-plugin
 version: 0.1.0
-description: 検討・設計・指示の管理・承認の求め方など、仕事の進め方の skill を提供
+description: 検討・設計・指示の管理など、仕事の進め方の skill を提供
 author: ph-2-wo
 license: MIT
 targets:
