@@ -1,18 +1,23 @@
 # Dev Workflow Plugin
 
-仕事の進め方の skill package。指示の管理、案の検討、設計の決め方を担う。
+仕事の進め方の skill package。開発の現在地の判定から実装・レビュー依頼までの流れと、指示の管理、案の検討、設計の決め方を担う。
 
 ## 入るもの・入らないもの
 
-- 入る: 仕事の流れの一段階（指示を受ける・案を検討する・設計を決める）を担う skill
+- 入る: 仕事の流れの一段階（現在地の判定・指示を受ける・案を検討する・設計を決める・実装・self review・レビュー依頼）を担う skill
 - 入らない: 仕事の流れの一段階ではない skill。commit の切り方（`git-plugin`）、成果物の review（`review-plugin`）、振り返り会（`facilitation-plugin`）、承認の求め方（`next-action-plugin`）
 
-agent は、受けた指示を会話の中にだけ持ち、話が進むうちに原文と自分の解釈を混ぜる。
+セッションを開いた agent は、自分が開発のどの段階にいるかを判断しないまま作業を始める。
+調査で足りる場面で実装を始めたり、要件が決まっていないのに Plan を書いたりする。
+実装に入ってからも、詰まったときに何度も同じ修正を繰り返してユーザーに報告しない。
+受けた指示は会話の中にだけ持ち、話が進むうちに原文と自分の解釈を混ぜる。
 案を求められると、広げきる前に1つに絞るか、広げたまま判断を投げる。
 この package は、その各場面に手順を与える。
 
 ## Skills
 
+- `workflow-placement`: セッションの最初に使い、開発の現在地を判定して次の skill へ渡す
+- `flexible-dev`: Plan から実装、self review、レビュー依頼までを進める
 - `instruction-management`: 指示の原文・解釈・変更・解決状態をファイルで管理する
 - `repeating-diamond`: 広げると収束を分けて繰り返し、案を絞り込む
 - `stepwise-system-design`: 作るものの設計を、抽象・土台から一段階ずつ決める
@@ -23,6 +28,8 @@ skill 間に依存がある。**依存先を一緒に install しないと機能
 
 | skill | 依存先 |
 |---|---|
+| `workflow-placement` | `instruction-management`, `flexible-dev`, `zero`（`communication-plugin`） |
+| `flexible-dev` | `repeating-diamond`, `imitation-review`・`custom-review`（`review-plugin`）, `zero`（`communication-plugin`）, `structured-refactor`（`agent-base-plugin`） |
 | `instruction-management` | `structured-refactor`（`agent-base-plugin`） |
 | `repeating-diamond` | なし |
 | `stepwise-system-design` | `repeating-diamond` |
@@ -37,6 +44,8 @@ apm install dev-workflow-plugin@agent-harness-marketplace
 ```
 
 ## Usage
+
+`workflow-placement`: セッションの最初。ここから `flexible-dev` などへ進む。
 
 `instruction-management`: ユーザーから入力・返答があるたび、その回の作業を始める前。
 

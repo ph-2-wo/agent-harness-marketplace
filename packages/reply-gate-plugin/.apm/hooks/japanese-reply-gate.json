@@ -1,0 +1,13 @@
+{
+  "Stop": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "bash ./scripts/japanese-reply-gate.sh"
+        }
+      ]
+    }
+  ]
+}

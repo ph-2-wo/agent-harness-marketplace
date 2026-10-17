@@ -25,7 +25,7 @@
     },
     {
       "name": "dev-workflow-plugin",
-      "description": "検討・設計・指示の管理など、仕事の進め方の skill を提供",
+      "description": "開発の現在地把握から実装・レビュー依頼までの流れと、検討・設計・指示の管理など、仕事の進め方の skill を提供",
       "version": "0.1.0",
       "source": "./packages/dev-workflow-plugin"
     },
@@ -58,6 +58,18 @@
       "description": "承認を求める事項を、応答の末尾に番号付きの「ネクストアクション」として書く skill を提供",
       "version": "0.1.0",
       "source": "./packages/next-action-plugin"
+    },
+    {
+      "name": "visualization-plugin",
+      "description": "表データ・数値データをグラフィカルに見せる方法のアイデア集の skill を提供",
+      "version": "0.1.0",
+      "source": "./packages/visualization-plugin"
+    },
+    {
+      "name": "reply-gate-plugin",
+      "description": "応答の書き方（長さ・言語）を機械的に確かめて差し戻す hook を提供",
+      "version": "0.1.0",
+      "source": "./packages/reply-gate-plugin"
     }
   ]
 }

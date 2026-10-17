@@ -12,13 +12,15 @@ APM は Microsoft 製の OSS で、agent 向けの skill・instruction などを
 | :-- | :-- |
 | [agent-base-plugin](packages/agent-base-plugin/README.md) | 一切の依存を持たない、他 skill の土台になる skill |
 | [communication-plugin](packages/communication-plugin/README.md) | 説明・報告など、ユーザーへ何をどう伝えるかの skill |
-| [review-plugin](packages/review-plugin/README.md) | 模倣・ドキュメント・文書の最小化・skill の各種 review skill |
-| [dev-workflow-plugin](packages/dev-workflow-plugin/README.md) | 検討・設計・指示の管理など、仕事の進め方の skill |
+| [review-plugin](packages/review-plugin/README.md) | 実際に起きた問題から蓄積した観点の review と、模倣・ドキュメント・文書の最小化・skill の各種 review skill |
+| [dev-workflow-plugin](packages/dev-workflow-plugin/README.md) | 開発の現在地の判定から実装・レビュー依頼までの流れと、検討・設計・指示の管理など、仕事の進め方の skill |
 | [facilitation-plugin](packages/facilitation-plugin/README.md) | 振り返り会など、人と進める会の進め方の skill |
-| [harness-dev-plugin](packages/harness-dev-plugin/README.md) | ハーネス（CLAUDE.md・skill・hook）そのものを書く skill |
+| [harness-dev-plugin](packages/harness-dev-plugin/README.md) | ハーネス（CLAUDE.md・skill・hook）そのものを開発・整備する skill |
 | [git-plugin](packages/git-plugin/README.md) | commit・PR の切り方の skill |
 | [apm-dev-plugin](packages/apm-dev-plugin/README.md) | APM の機構に固有の skill 開発手順 |
 | [next-action-plugin](packages/next-action-plugin/README.md) | 承認を求める事項を、応答の末尾に番号付きで書く skill |
+| [visualization-plugin](packages/visualization-plugin/README.md) | 表データ・数値データをグラフィカルに見せる方法のアイデア集の skill |
+| [reply-gate-plugin](packages/reply-gate-plugin/README.md) | 応答の長さ・言語を機械的に確かめて差し戻す hook |
 
 ## Install APM CLI
 
@@ -46,7 +48,7 @@ apm install {package-name}@agent-harness-marketplace
 
 package が依存する別の package は、各 package の `apm.yml` に書いてあり、install すると一緒に入る。
 
-install した skill は `.claude/skills/` へ展開される。既存の `CLAUDE.md` は書き換えられない。
+install した skill は `.claude/skills/` へ展開される。hook を持つ package は `.claude/settings.json` に hook を登録する。既存の `CLAUDE.md` は書き換えられない。
 
 ## Update
 

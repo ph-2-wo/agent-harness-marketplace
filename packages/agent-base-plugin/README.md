@@ -10,12 +10,14 @@
 依存を持たない skill は、他のどの skill からも安全に呼べる。
 情報を整理する、という作業は多くの skill の中に現れる。各 skill がそれぞれの言い方で
 「整理する」と書くと、agent は整理のたびに情報を足したり要約したりして、元の情報を壊す。
-この package は、その土台になる手順を1本に切り出して置く。
+README のような長く残る文書を書くときも、agent はその時点の状況や数を書き込み、文書はすぐに古くなる。
+この package は、こうした土台になる手順を1本ずつ切り出して置く。
 
 ## Skills
 
 - `structured-refactor`: 情報を1行ずつ分析し、増やさずに構造へ組み替える
 - `leap-by-imitation`: 貯めた種・検索・自分の知識から実例を集め、今の課題に結びつけて、前提から作り直す案を出す
+- `writing-docs`: README・設計書のような恒久ドキュメントに、何を書き何を書かないかを決める
 
 ## Dependency
 
@@ -34,3 +36,5 @@ apm install agent-base-plugin@agent-harness-marketplace
 `retrospective`、`skill-review` から呼ばれる。
 
 `leap-by-imitation`: 改善では届かない案（飛躍）を出すとき。飛躍の種になる事例に触れたとき。
+
+`writing-docs`: 恒久ドキュメントを書く・書き直す・削って整理するとき。`custom-review` から呼ばれる。

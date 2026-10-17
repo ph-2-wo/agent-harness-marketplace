@@ -1,0 +1,15 @@
+name: reply-gate-plugin
+version: 0.1.0
+description: 応答の書き方（長さ・言語）を機械的に確かめて差し戻す hook を提供
+author: ph-2-wo
+license: MIT
+targets:
+  - claude
+
+dependencies:
+  apm: []
+  mcp: []
+includes: auto
+devDependencies:
+  apm: []
+scripts: {}
