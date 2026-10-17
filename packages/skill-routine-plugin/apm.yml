@@ -1,0 +1,17 @@
+name: skill-routine-plugin
+version: 0.1.0
+description: skill を使う毎回の手順を注入し、読み込んだ skill をタスクにする hook を提供
+author: ph-2-wo
+license: MIT
+targets:
+  - claude
+
+dependencies:
+  apm:
+    - path: ../next-action-plugin
+    - path: ../dev-workflow-plugin
+  mcp: []
+includes: auto
+devDependencies:
+  apm: []
+scripts: {}

@@ -55,7 +55,7 @@
     },
     {
       "name": "next-action-plugin",
-      "description": "承認を求める事項を、応答の末尾に番号付きの「ネクストアクション」として書く skill を提供",
+      "description": "承認を求める事項を、応答の末尾に番号付きの「ネクストアクション」として書く skill と、それを前提にした承認の判定の instruction を提供",
       "version": "0.1.0",
       "source": "./packages/next-action-plugin"
     },
@@ -70,6 +70,12 @@
       "description": "応答の書き方（長さ・言語）を機械的に確かめて差し戻す hook を提供",
       "version": "0.1.0",
       "source": "./packages/reply-gate-plugin"
+    },
+    {
+      "name": "skill-routine-plugin",
+      "description": "skill を使う毎回の手順を注入し、読み込んだ skill をタスクにする hook を提供",
+      "version": "0.1.0",
+      "source": "./packages/skill-routine-plugin"
     }
   ]
 }

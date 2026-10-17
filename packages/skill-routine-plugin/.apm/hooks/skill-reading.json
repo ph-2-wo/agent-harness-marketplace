@@ -1,0 +1,33 @@
+{
+  "SessionStart": [
+    {
+      "matcher": "startup|resume|clear",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "bash ./scripts/skill-reading.sh session"
+        }
+      ]
+    }
+  ],
+  "UserPromptSubmit": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "bash ./scripts/skill-reading.sh prompt"
+        }
+      ]
+    }
+  ],
+  "SubagentStart": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "bash ./scripts/skill-reading.sh subagent"
+        }
+      ]
+    }
+  ]
+}

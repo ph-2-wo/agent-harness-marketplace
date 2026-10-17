@@ -1,0 +1,14 @@
+{
+  "PreToolUse": [
+    {
+      "matcher": "Skill",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "bash ./scripts/skill-task.sh",
+          "timeout": 10
+        }
+      ]
+    }
+  ]
+}

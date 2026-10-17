@@ -57,7 +57,7 @@ marketplace:
     - name: next-action-plugin
       source: ./packages/next-action-plugin
       version: 0.1.0
-      description: 承認を求める事項を、応答の末尾に番号付きの「ネクストアクション」として書く skill を提供
+      description: 承認を求める事項を、応答の末尾に番号付きの「ネクストアクション」として書く skill と、それを前提にした承認の判定の instruction を提供
     - name: visualization-plugin
       source: ./packages/visualization-plugin
       version: 0.1.0
@@ -66,3 +66,7 @@ marketplace:
       source: ./packages/reply-gate-plugin
       version: 0.1.0
       description: 応答の書き方（長さ・言語）を機械的に確かめて差し戻す hook を提供
+    - name: skill-routine-plugin
+      source: ./packages/skill-routine-plugin
+      version: 0.1.0
+      description: skill を使う毎回の手順を注入し、読み込んだ skill をタスクにする hook を提供
