@@ -1,0 +1,9 @@
+{
+  "name": "agent-harness-marketplace",
+  "version": "0.1.0",
+  "description": "agent \u306e\u30cf\u30fc\u30cd\u30b9\uff08skill\uff09\u3092\u7528\u9014\u5225\u306b\u914d\u308b APM Marketplace",
+  "author": {
+    "name": "ph-2-wo"
+  },
+  "license": "MIT"
+}

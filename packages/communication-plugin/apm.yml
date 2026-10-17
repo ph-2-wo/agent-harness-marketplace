@@ -1,0 +1,17 @@
+name: communication-plugin
+version: 0.1.0
+description: ユーザーとのやり取りに使う skill を提供
+author: ph-2-wo
+license: MIT
+targets:
+  - claude
+
+dependencies:
+  apm:
+    - path: ../review-plugin
+    - path: ../agent-base-plugin
+  mcp: []
+includes: auto
+devDependencies:
+  apm: []
+scripts: {}

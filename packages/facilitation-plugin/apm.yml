@@ -1,0 +1,18 @@
+name: facilitation-plugin
+version: 0.1.0
+description: 振り返り会など、人と進める会の進め方の skill を提供
+author: ph-2-wo
+license: MIT
+targets:
+  - claude
+
+dependencies:
+  apm:
+    - path: ../agent-base-plugin
+    - path: ../dev-workflow-plugin
+    - path: ../communication-plugin
+  mcp: []
+includes: auto
+devDependencies:
+  apm: []
+scripts: {}

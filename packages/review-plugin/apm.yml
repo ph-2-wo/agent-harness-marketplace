@@ -1,0 +1,17 @@
+name: review-plugin
+version: 0.1.0
+description: 各種 review skill を提供
+author: ph-2-wo
+license: MIT
+targets:
+  - claude
+
+dependencies:
+  apm:
+    - path: ../harness-dev-plugin
+    - path: ../agent-base-plugin
+  mcp: []
+includes: auto
+devDependencies:
+  apm: []
+scripts: {}

@@ -1,0 +1,57 @@
+{
+  "name": "agent-harness-marketplace",
+  "owner": {
+    "name": "ph-2-wo",
+    "url": "https://github.com/ph-2-wo"
+  },
+  "plugins": [
+    {
+      "name": "agent-base-plugin",
+      "description": "agent が土台として使う、依存を持たない汎用 skill を提供",
+      "version": "0.1.0",
+      "source": "./packages/agent-base-plugin"
+    },
+    {
+      "name": "communication-plugin",
+      "description": "ユーザーとのやり取りに使う skill を提供",
+      "version": "0.1.0",
+      "source": "./packages/communication-plugin"
+    },
+    {
+      "name": "review-plugin",
+      "description": "各種 review skill を提供",
+      "version": "0.1.0",
+      "source": "./packages/review-plugin"
+    },
+    {
+      "name": "dev-workflow-plugin",
+      "description": "検討・設計・指示の管理・承認の求め方など、仕事の進め方の skill を提供",
+      "version": "0.1.0",
+      "source": "./packages/dev-workflow-plugin"
+    },
+    {
+      "name": "facilitation-plugin",
+      "description": "振り返り会など、人と進める会の進め方の skill を提供",
+      "version": "0.1.0",
+      "source": "./packages/facilitation-plugin"
+    },
+    {
+      "name": "harness-dev-plugin",
+      "description": "ハーネス（CLAUDE.md・skill・hook）そのものを開発・整備する skill を提供",
+      "version": "0.1.0",
+      "source": "./packages/harness-dev-plugin"
+    },
+    {
+      "name": "git-plugin",
+      "description": "commit・PR の切り方の skill を提供",
+      "version": "0.1.0",
+      "source": "./packages/git-plugin"
+    },
+    {
+      "name": "apm-dev-plugin",
+      "description": "APM package/skill 開発用の skill を提供",
+      "version": "0.1.0",
+      "source": "./packages/apm-dev-plugin"
+    }
+  ]
+}

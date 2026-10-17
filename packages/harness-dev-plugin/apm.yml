@@ -1,0 +1,15 @@
+name: harness-dev-plugin
+version: 0.1.0
+description: ハーネス（CLAUDE.md・skill・hook）そのものを開発・整備する skill を提供
+author: ph-2-wo
+license: MIT
+targets:
+  - claude
+
+dependencies:
+  apm: []
+  mcp: []
+includes: auto
+devDependencies:
+  apm: []
+scripts: {}

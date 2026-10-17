@@ -1,0 +1,56 @@
+name: agent-harness-marketplace
+version: 0.1.0
+description: agent のハーネス（skill）を用途別に配る APM Marketplace
+author: ph-2-wo
+license: MIT
+targets:
+  - claude
+marketplace:
+  owner:
+    name: ph-2-wo
+    url: https://github.com/ph-2-wo
+
+  # Default tag pattern used to resolve version ranges for each package.
+  build:
+    tagPattern: "v{version}"
+
+  outputs:
+    claude: {}
+
+  # 全 package のバージョンを揃える（既定値。明示しておく）
+  versioning:
+    strategy: lockstep
+
+  packages:
+    - name: agent-base-plugin
+      source: ./packages/agent-base-plugin
+      version: 0.1.0
+      description: agent が土台として使う、依存を持たない汎用 skill を提供
+    - name: communication-plugin
+      source: ./packages/communication-plugin
+      version: 0.1.0
+      description: ユーザーとのやり取りに使う skill を提供
+    - name: review-plugin
+      source: ./packages/review-plugin
+      version: 0.1.0
+      description: 各種 review skill を提供
+    - name: dev-workflow-plugin
+      source: ./packages/dev-workflow-plugin
+      version: 0.1.0
+      description: 検討・設計・指示の管理・承認の求め方など、仕事の進め方の skill を提供
+    - name: facilitation-plugin
+      source: ./packages/facilitation-plugin
+      version: 0.1.0
+      description: 振り返り会など、人と進める会の進め方の skill を提供
+    - name: harness-dev-plugin
+      source: ./packages/harness-dev-plugin
+      version: 0.1.0
+      description: ハーネス（CLAUDE.md・skill・hook）そのものを開発・整備する skill を提供
+    - name: git-plugin
+      source: ./packages/git-plugin
+      version: 0.1.0
+      description: commit・PR の切り方の skill を提供
+    - name: apm-dev-plugin
+      source: ./packages/apm-dev-plugin
+      version: 0.1.0
+      description: APM package/skill 開発用の skill を提供
