@@ -18,10 +18,11 @@ APM は Microsoft 製の OSS で、agent 向けの skill・instruction などを
 | [harness-dev-plugin](packages/harness-dev-plugin/README.md) | ハーネス（CLAUDE.md・skill・hook）そのものを開発・整備する skill |
 | [git-plugin](packages/git-plugin/README.md) | commit・PR の切り方の skill |
 | [apm-dev-plugin](packages/apm-dev-plugin/README.md) | APM の機構に固有の skill 開発手順 |
-| [next-action-plugin](packages/next-action-plugin/README.md) | 承認を求める事項を、応答の末尾に番号付きで書く skill と、それを前提にした承認の判定の instruction |
+| [next-action-plugin](packages/next-action-plugin/README.md) | 承認を求める事項・ユーザーへの依頼・後回しを手元の CLI で記録し、未処理を1枚のページに出す skill と、それを前提にした承認の判定の instruction |
 | [visualization-plugin](packages/visualization-plugin/README.md) | 表データ・数値データをグラフィカルに見せる方法のアイデア集の skill |
 | [reply-gate-plugin](packages/reply-gate-plugin/README.md) | 応答の長さ・言語を機械的に確かめて差し戻す hook |
 | [skill-routine-plugin](packages/skill-routine-plugin/README.md) | skill を使う毎回の手順を注入し、読み込んだ skill をタスクにする hook |
+| [next-action-hook-plugin](packages/next-action-hook-plugin/README.md) | ネクストアクションの CLI のコマンドと未処理の番号をターンごとに差し込み、登録の漏れを応答の終わりに確かめる hook |
 
 ## Install APM CLI
 
