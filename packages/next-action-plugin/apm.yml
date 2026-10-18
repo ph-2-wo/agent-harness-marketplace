@@ -1,10 +1,11 @@
 name: next-action-plugin
 version: 0.1.0
-description: 承認を求める事項を、応答の末尾に番号付きの「ネクストアクション」として書く skill と、それを前提にした承認の判定の instruction を提供
+description: 承認を求める事項・ユーザーへの依頼・後回しを手元の CLI で記録し、未処理を1枚のページに出す skill と、それを前提にした承認の判定の instruction を提供
 author: ph-2-wo
 license: MIT
 targets:
   - claude
+  - codex
 
 dependencies:
   apm:
