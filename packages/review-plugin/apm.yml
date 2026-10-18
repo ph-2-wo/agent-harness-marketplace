@@ -5,6 +5,7 @@ author: ph-2-wo
 license: MIT
 targets:
   - claude
+  - codex
 
 dependencies:
   apm:
