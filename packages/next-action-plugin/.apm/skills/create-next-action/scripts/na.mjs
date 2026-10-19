@@ -2,10 +2,7 @@
 // ネクストアクション（承認を求める事項）と依頼（ユーザーに頼む作業）と後回し（今はやらないが後で戻すもの）を、
 // 手元の SQLite のファイルに記録する。依存なし。Node 組み込みの node:sqlite を使う（Node v22.13.0 / v23.4.0 以上）。
 //
-// このファイルは2か所に同じものがある。変えるときは両方を変え、cmp で一致を確かめる。
-//   packages/next-action-plugin/.apm/skills/create-next-action/scripts/na.mjs（skill から呼ぶ）
-//   packages/next-action-hook-plugin/.apm/hooks/scripts/na.mjs（hook から呼ぶ）
-// hook は別のパッケージに置く決まりで、APM は hook のコマンドからパッケージの外のファイルを指せないため。
+// 同じパッケージの hook（.apm/hooks/next-action.json）も、このファイルを呼ぶ。
 //
 // エージェントが呼ぶもの（失敗したら理由を stderr に出して exit 1。直して呼び直せるように）:
 //   na.mjs register              標準入力の JSON を 1 件登録し、A{seq} を出す
