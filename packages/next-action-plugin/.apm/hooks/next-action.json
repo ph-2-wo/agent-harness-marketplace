@@ -5,7 +5,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "node ./scripts/na.mjs session-start",
+          "command": "node \"${PLUGIN_ROOT}/.apm/skills/create-next-action/scripts/na.mjs\" session-start",
           "timeout": 10
         }
       ]
@@ -16,7 +16,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "node ./scripts/na.mjs turn",
+          "command": "node \"${PLUGIN_ROOT}/.apm/skills/create-next-action/scripts/na.mjs\" turn",
           "timeout": 10
         }
       ]
@@ -27,7 +27,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "node ./scripts/na.mjs stop",
+          "command": "node \"${PLUGIN_ROOT}/.apm/skills/create-next-action/scripts/na.mjs\" stop",
           "timeout": 10
         }
       ]

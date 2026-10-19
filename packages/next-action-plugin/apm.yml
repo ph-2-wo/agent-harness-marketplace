@@ -1,6 +1,6 @@
 name: next-action-plugin
 version: 0.1.0
-description: 承認を求める事項・ユーザーへの依頼・後回しを手元の CLI で記録し、未処理を1枚のページに出す skill と、それを前提にした承認の判定の instruction を提供
+description: 承認を求める事項・ユーザーへの依頼・後回しを手元の CLI で記録し、未処理を1枚のページに出す skill と、それを前提にした承認の判定の instruction と、CLI のコマンドと未処理の番号をターンごとに差し込み登録の漏れを応答の終わりに確かめる hook を提供
 author: ph-2-wo
 license: MIT
 targets:

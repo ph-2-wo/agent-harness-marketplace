@@ -6,8 +6,8 @@
 
 - 入る: 承認を求める事項・依頼・後回しの記録の仕方（登録・承認・取り下げ・完了・後回し、返事の予想、今の段階で何をアクションにするか）と、それを記録する CLI
 - 入る: 承認の記録の仕方を前提にした部品（当初の要求に立ち返る skill、何を承認とみなすかの instruction）
+- 入る: CLI のコマンドと未処理の番号をターンごとに差し込む hook、一覧のページの場所を会話の始めに知らせる hook、登録の漏れを応答の終わりに確かめる hook
 - 入らない: 指示の管理や案の検討など、仕事の流れのほかの段階（`dev-workflow-plugin`）
-- 入らない: CLI のコマンドと未処理の番号をターンごとに差し込む hook（`next-action-hook-plugin`）
 - 入らない: 承認の求め方を毎回の手順として注入する hook（`skill-routine-plugin`）
 
 agent は、承認が要ることを、承認を取らずに実行するか、どれが承認待ちなのかが読み手に分からない形で書く。
@@ -17,6 +17,10 @@ agent は、承認が要ることを、承認を取らずに実行するか、�
 別の package にした理由は、同じ `create-next-action` という名前で別の書き方の skill を既に使っている環境がありうるため。
 同じ名前の skill が2つ入るとどちらか一方しか残らないので、`dev-workflow-plugin` だけを入れた環境に持ち込まないよう分けている。
 `create-next-action` の記録の仕方を前提にする skill・instruction も、同じ理由でこの package に置く。
+
+hook もこの package に置く。
+APM は hook のコマンドからパッケージの外のファイルを指せないので、CLI と別の package にすると CLI の写しが要る。
+hook は入れた環境のすべてのターンに効く。
 
 ## 記録と表示
 
@@ -29,13 +33,14 @@ agent は、承認が要ることを、承認を取らずに実行するか、�
 
 - `next-action.sqlite`: 記録
 - `index.html`: 全リポジトリ・全セッションの、未処理のネクストアクションと未完了の依頼。差分の本文も出す。記録を変えるたびに書き直し、ページは数秒ごとに自分で読み直す
-- `hook.log`: `next-action-hook-plugin` の hook の記録。直近だけ残す
+- `hook.log`: この package の hook の記録。直近だけ残す
 
 ページはブラウザで一度開いておけば、記録のたびに新しくなる。常駐するサーバーは無い。
 
 番号はセッションごとに振る。
 CLI に `--session <id>` が付けばそのセッション、付かなければ今のディレクトリのリポジトリ（git の origin の owner/repo、取れなければディレクトリ名）を1つのセッションとして扱う。
-`next-action-hook-plugin` を入れると、agent の会話の ID を `--session` に入れたコマンドが文脈に差し込まれる。
+この package の hook は、agent の会話の ID を `--session` に入れたコマンドを毎回文脈に差し込み、会話ごとに番号を分ける。
+hook が動かない環境では、同じリポジトリの会話どうしで番号が混ざる。
 
 ## Skills
 
@@ -46,6 +51,19 @@ CLI に `--session <id>` が付けばそのセッション、付かなければ�
 
 - `approval`: 承認の要否の判定、何を承認とみなすか、承認を求める事項は `create-next-action` に従うこと、承認後に予定が失敗したら止まって承認を求め直すこと
 
+## Hooks
+
+Claude Code と Codex で動く。どちらも受け付ける出力の形だけを使う。
+どれも `create-next-action` の `scripts/na.mjs` を呼ぶ。
+
+- `next-action`（`SessionStart`）: 一覧のページを書き、その場所を `systemMessage` で1回知らせる
+- `next-action`（`UserPromptSubmit`）: やり取りを1回数え、`--session <会話の ID>` を含んだ CLI のコマンドを文脈に差し込む。
+  未処理のネクストアクション・未完了の依頼があればその番号を、決着の無い後回しがあればその件数を一緒に差し込む
+- `next-action`（`Stop`）: その会話に未処理のネクストアクションが無ければ、登録を忘れていないかを確かめさせるため、`decision: "block"` で1回だけ続けさせる
+
+失敗してもセッションは止めない。何が起きたかは「記録と表示」の `hook.log` に残る。
+`node` が要る（Node v22.13.0 / v23.4.0 以上）。
+
 ## Dependency
 
 skill・instruction の間に依存がある。**依存先を一緒に install しないと機能しない。**
@@ -54,6 +72,7 @@ skill・instruction の間に依存がある。**依存先を一緒に install �
 |---|---|
 | `realign-with-original-request` | `create-next-action`（この package）、`instruction-management`（`dev-workflow-plugin`。要求の原文を指示メモから拾う） |
 | `approval` | `create-next-action`（この package） |
+| `next-action` | `create-next-action`（この package。差し込む文が名指しする） |
 
 依存先の package は `apm.yml` に書いてあり、この package を install すると一緒に入る。
 
@@ -69,3 +88,7 @@ apm install next-action-plugin@agent-harness-marketplace
 承認を求める事項、ユーザーに作業を頼む事項、後回しにする事項があるとき。
 install すると、Claude Code では skill は `.claude/skills/`、instruction は `.claude/rules/` に置かれる。
 Codex では skill は `.agents/skills/` に置かれ、instruction は `apm compile` で `AGENTS.md` に入る。
+hook は、Claude Code では `.claude/settings.json` に、Codex では `.codex/hooks.json` に登録されて毎回動く。
+Codex は、新しい hook を `/hooks` で確かめて信頼するまで動かさない。
+Codex の hook のコマンドは、APM がリポジトリの直下からの相対パスで登録し、Codex は会話の作業ディレクトリで実行する。
+リポジトリの直下以外で Codex を起動すると hook は動かない。
