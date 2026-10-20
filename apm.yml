@@ -46,10 +46,10 @@ marketplace:
       source: ./packages/harness-dev-plugin
       version: 0.1.0
       description: ハーネス（CLAUDE.md・skill・hook）そのものを開発・整備する skill を提供
-    - name: git-plugin
-      source: ./packages/git-plugin
+    - name: pull-request-communication-plugin
+      source: ./packages/pull-request-communication-plugin
       version: 0.1.0
-      description: commit・PR の切り方の skill を提供
+      description: commit の切り方と PR の作成など、PR を通したやり取りの skill を提供
     - name: apm-dev-plugin
       source: ./packages/apm-dev-plugin
       version: 0.1.0
