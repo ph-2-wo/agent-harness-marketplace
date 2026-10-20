@@ -26,7 +26,7 @@
 //   na.mjs session-start   SessionStart。一覧のページを書き、その場所を systemMessage で出す
 //   na.mjs turn            UserPromptSubmit。やり取りを 1 回進め、hook 入力の session_id を --session に入れたコマンドを文脈に差し込む
 //                          未処理のアクション・未完了の依頼があればその番号も、決着の無い後回しがあればその件数だけも差し込む
-//   na.mjs stop            Stop。未処理が0件なら、登録を忘れていないかを確かめさせ、後回しが残っていればその件数も渡す
+//   na.mjs stop            Stop。未処理のアクションも依頼も0件なら、登録を忘れていないかを確かめさせ、後回しが残っていればその件数も渡す
 //                          続けさせるのは decision: "block"（Codex の Stop は additionalContext を受けない）
 //                          この hook で続けた後の終了（stop_hook_active）では何もしない
 //
