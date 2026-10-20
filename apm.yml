@@ -70,3 +70,7 @@ marketplace:
       source: ./packages/skill-routine-plugin
       version: 0.1.0
       description: skill を使う毎回の手順を注入し、読み込んだ skill をタスクにする hook を提供
+    - name: subagent-plugin
+      source: ./packages/subagent-plugin
+      version: 0.1.0
+      description: 組み込みのサブエージェントを上書きする agent 定義を提供
