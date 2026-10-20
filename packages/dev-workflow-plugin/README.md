@@ -5,7 +5,7 @@
 ## 入るもの・入らないもの
 
 - 入る: 仕事の流れの一段階（現在地の判定・指示を受ける・案を検討する・設計を決める・実装・self review・レビュー依頼）を担う skill
-- 入らない: 仕事の流れの一段階ではない skill。commit の切り方（`git-plugin`）、成果物の review（`review-plugin`）、振り返り会（`facilitation-plugin`）、承認の求め方（`next-action-plugin`）
+- 入らない: 仕事の流れの一段階ではない skill。commit の切り方と PR の作成（`pull-request-communication-plugin`）、成果物の review（`review-plugin`）、振り返り会（`facilitation-plugin`）、承認の求め方（`next-action-plugin`）
 
 セッションを開いた agent は、自分が開発のどの段階にいるかを判断しないまま作業を始める。
 調査で足りる場面で実装を始めたり、要件が決まっていないのに Plan を書いたりする。

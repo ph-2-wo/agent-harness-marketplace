@@ -16,7 +16,7 @@ APM は Microsoft 製の OSS で、agent 向けの skill・instruction などを
 | [dev-workflow-plugin](packages/dev-workflow-plugin/README.md) | 開発の現在地の判定から実装・レビュー依頼までの流れと、検討・設計・指示の管理など、仕事の進め方の skill |
 | [facilitation-plugin](packages/facilitation-plugin/README.md) | 振り返り会など、人と進める会の進め方の skill |
 | [harness-dev-plugin](packages/harness-dev-plugin/README.md) | ハーネス（CLAUDE.md・skill・hook）そのものを開発・整備する skill |
-| [git-plugin](packages/git-plugin/README.md) | commit・PR の切り方の skill |
+| [pull-request-communication-plugin](packages/pull-request-communication-plugin/README.md) | commit の切り方と PR の作成など、PR を通したやり取りの skill |
 | [apm-dev-plugin](packages/apm-dev-plugin/README.md) | APM の機構に固有の skill 開発手順 |
 | [next-action-plugin](packages/next-action-plugin/README.md) | 承認を求める事項・ユーザーへの依頼・後回しを手元の CLI で記録し、未処理を1枚のページに出す skill と、それを前提にした承認の判定の instruction と、CLI のコマンドと未処理の番号をターンごとに差し込み登録の漏れを応答の終わりに確かめる hook |
 | [visualization-plugin](packages/visualization-plugin/README.md) | 表データ・数値データをグラフィカルに見せる方法のアイデア集の skill |

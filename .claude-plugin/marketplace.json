@@ -42,10 +42,10 @@
       "source": "./packages/harness-dev-plugin"
     },
     {
-      "name": "git-plugin",
-      "description": "commit・PR の切り方の skill を提供",
+      "name": "pull-request-communication-plugin",
+      "description": "commit の切り方と PR の作成など、PR を通したやり取りの skill を提供",
       "version": "0.1.0",
-      "source": "./packages/git-plugin"
+      "source": "./packages/pull-request-communication-plugin"
     },
     {
       "name": "apm-dev-plugin",
