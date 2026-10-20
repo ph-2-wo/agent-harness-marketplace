@@ -76,6 +76,12 @@
       "description": "skill を使う毎回の手順を注入し、読み込んだ skill をタスクにする hook を提供",
       "version": "0.1.0",
       "source": "./packages/skill-routine-plugin"
+    },
+    {
+      "name": "subagent-plugin",
+      "description": "組み込みのサブエージェントを上書きする agent 定義を提供",
+      "version": "0.1.0",
+      "source": "./packages/subagent-plugin"
     }
   ]
 }
