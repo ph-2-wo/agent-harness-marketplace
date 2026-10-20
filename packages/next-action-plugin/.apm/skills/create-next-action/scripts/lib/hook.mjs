@@ -90,13 +90,13 @@ export async function hookStop() {
   const sid = hookSessionId(input);
   if (!sid) return log("SKIP stop — hook の入力に session_id が無い");
   const db = await openDb();
-  const { actions, deferrals } = listPending(db, sid);
-  // 未処理のアクションがあるときは後回しの件数も出さない。出すと毎回の応答を 1 回余分に続けさせる
-  if (actions.length) return;
+  const { actions, requests, deferrals } = listPending(db, sid);
+  // 未処理のアクションか依頼があるときは何も出さない。出すと毎回の応答を 1 回余分に続けさせる
+  if (actions.length || requests.length) return;
   const lines = [
-    "未処理のネクストアクションはありません。",
-    "ネクストアクションがないならユーザーはなにも許可しません。",
-    "この回で承認を求める事項を出していたら create-next-action で登録する。無ければこのまま終えてよい。",
+    "未処理のネクストアクションも、お願いしている作業もありません。",
+    "この状態で応答を終えてよいのは、このセッションでやることが無く、終えるべきと判断したときだけ。",
+    "そう判断していないなら、承認を求める事項はネクストアクション、ユーザーに頼む事項は依頼として create-next-action で登録する。終えると判断したなら、本文にそう書く。",
   ];
   if (deferrals.length) {
     lines.push(
