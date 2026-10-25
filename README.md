@@ -21,7 +21,8 @@ APM は Microsoft 製の OSS で、agent 向けの skill・instruction などを
 | [next-action-plugin](packages/next-action-plugin/README.md) | 承認を求める事項・ユーザーへの依頼・後回しを手元の CLI で記録し、未処理を1枚のページに出す skill と、それを前提にした承認の判定の instruction と、CLI のコマンドと未処理の番号をターンごとに差し込み登録の漏れを応答の終わりに確かめる hook |
 | [visualization-plugin](packages/visualization-plugin/README.md) | 表データ・数値データをグラフィカルに見せる方法のアイデア集の skill |
 | [reply-gate-plugin](packages/reply-gate-plugin/README.md) | 応答の長さ・言語を機械的に確かめて差し戻す hook |
-| [skill-routine-plugin](packages/skill-routine-plugin/README.md) | skill を使う毎回の手順を注入し、読み込んだ skill をタスクにする hook |
+| [skill-routine-plugin](packages/skill-routine-plugin/README.md) | skill を使う毎回の手順を注入する hook |
+| [skill-gate-plugin](packages/skill-gate-plugin/README.md) | 読み込んだ skill をタスクにし、決まった道具の前に skill を読み込ませる hook |
 | [subagent-plugin](packages/subagent-plugin/README.md) | 組み込みのサブエージェント（`Explore`）を安いモデルで動かすよう上書きする agent 定義 |
 
 ## Install APM CLI

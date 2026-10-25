@@ -69,7 +69,11 @@ marketplace:
     - name: skill-routine-plugin
       source: ./packages/skill-routine-plugin
       version: 0.1.0
-      description: skill を使う毎回の手順を注入し、読み込んだ skill をタスクにする hook を提供
+      description: skill を使う毎回の手順を注入する hook を提供
+    - name: skill-gate-plugin
+      source: ./packages/skill-gate-plugin
+      version: 0.1.0
+      description: 読み込んだ skill をタスクにし、決まった道具の前に skill を読み込ませる hook を提供
     - name: subagent-plugin
       source: ./packages/subagent-plugin
       version: 0.1.0
