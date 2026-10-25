@@ -73,9 +73,15 @@
     },
     {
       "name": "skill-routine-plugin",
-      "description": "skill を使う毎回の手順を注入し、読み込んだ skill をタスクにする hook を提供",
+      "description": "skill を使う毎回の手順を注入する hook を提供",
       "version": "0.1.0",
       "source": "./packages/skill-routine-plugin"
+    },
+    {
+      "name": "skill-gate-plugin",
+      "description": "読み込んだ skill をタスクにし、決まった道具の前に skill を読み込ませる hook を提供",
+      "version": "0.1.0",
+      "source": "./packages/skill-gate-plugin"
     },
     {
       "name": "subagent-plugin",
