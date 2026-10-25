@@ -19,6 +19,7 @@ agent は自分が書いたものを妥当だと判断する。そのまま人�
 - [`documentation-review`](docs/skills/documentation-review.md): ドキュメントの責務と保守性のレビュー
 - [`skill-review`](docs/skills/skill-review.md): skill と skill 作成 Plan のレビュー
 - [`document-minimization-review`](docs/skills/document-minimization-review.md): 文書を最小化する削除起点のレビュー
+- [`explanation-evidence-review`](docs/skills/explanation-evidence-review.md): 説明を1文ずつ一次情報に照らす、書いた本人とは別のサブエージェントによる確認
 
 ## Dependency
 
