@@ -18,7 +18,7 @@
 
 - `workflow-placement`: セッションの最初に使い、開発の現在地を判定して次の skill へ渡す
 - `flexible-dev`: Plan から実装、self review、レビュー依頼までを進める
-- `instruction-management`: 指示の原文・解釈・変更・解決状態をファイルで管理する
+- `instruction-management`: 指示の解釈・変更・解決状態を、根拠にした発言の時刻と一緒にファイルで管理する
 - `catch-up-on-history`: 直近の記録から前提の議論まで遡り、当初の依頼の原文まで読む
 - `repeating-diamond`: 広げると収束を分けて繰り返し、案を絞り込む
 - `stepwise-system-design`: 作るものの設計を、抽象・土台から一段階ずつ決める
