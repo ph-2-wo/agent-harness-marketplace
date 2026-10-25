@@ -46,6 +46,7 @@ hook が動かない環境では、同じリポジトリの会話どうしで番
 
 - `create-next-action`: 承認を求める事項・ユーザーへの依頼・後回しを CLI で記録する
 - `realign-with-original-request`: 同じ件で続けて差し戻されたときに、当初の要求と現状のギャップから直近の要求を読み直し、本来やるべきだったことをネクストアクションにする
+- `instruction-coverage-check`: これまでのユーザーの指示が、未処理のアクション・依頼・後回しに全部載っているかを、会話を見ない新しいサブエージェントに確かめさせる。`realign-with-original-request` から呼ばれる
 
 ## Instructions
 
@@ -71,6 +72,8 @@ skill・instruction の間に依存がある。**依存先を一緒に install �
 | 部品 | 依存先 |
 |---|---|
 | `realign-with-original-request` | `create-next-action`（この package）、`instruction-management`（`dev-workflow-plugin`。要求の原文を指示メモから拾う） |
+| `realign-with-original-request`（2の呼び出し） | `instruction-coverage-check`（この package）、`explanation-evidence-review`（`review-plugin`。`dev-workflow-plugin` 経由で入る） |
+| `instruction-coverage-check` | `create-next-action`（この package。CLI の結果を読む） |
 | `approval` | `create-next-action`（この package） |
 | `next-action` | `create-next-action`（この package。差し込む文が名指しする） |
 
