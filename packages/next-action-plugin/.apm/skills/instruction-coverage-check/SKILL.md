@@ -1,7 +1,6 @@
 ---
 name: instruction-coverage-check
 description: realign-with-original-request から呼ばれたときに使う。これまでのユーザーの指示が、今のアクション・依頼・後回しで受け止められているかを確かめるときに使う。
-context: fork
 ---
 
 # これまでの指示が受け止められているかを確かめる
@@ -11,8 +10,9 @@ context: fork
 
 ## 1. 指示を書き出す
 
-`ls -t ~/.claude/projects/*/${CLAUDE_SESSION_ID}.jsonl` の先頭が、呼び出し元のトランスクリプト。
+呼び出し元が渡した path がトランスクリプト。無ければ `ls -t ~/.claude/projects/*/${CLAUDE_SESSION_ID}.jsonl` の先頭。
 `type` が `user` の行のうち、テキストが `<` で始まらない発言を、古いものから全部書き出して番号を振る。
+時刻を渡されたら、その時刻より後の発言だけにする。
 
 - 1つの発言に指示が複数あれば、分けて番号を振る
 - 原文の語を残す。言い換えない
