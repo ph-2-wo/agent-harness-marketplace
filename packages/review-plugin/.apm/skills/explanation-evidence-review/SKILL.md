@@ -1,7 +1,6 @@
 ---
 name: explanation-evidence-review
 description: realign-with-original-request から呼ばれたときに使う。自分の説明に根拠が足りているかを確かめるときに使う。
-context: fork
 ---
 
 # 説明の根拠を1文ずつ確かめる
@@ -12,8 +11,9 @@ context: fork
 
 ## 1. 説明を集める
 
-`ls -t ~/.claude/projects/*/${CLAUDE_SESSION_ID}.jsonl` の先頭が、呼び出し元のトランスクリプト。
+呼び出し元が渡した path がトランスクリプト。無ければ `ls -t ~/.claude/projects/*/${CLAUDE_SESSION_ID}.jsonl` の先頭。
 `type` が `assistant` の行のテキストを全部集める。
+時刻を渡されたら、その時刻より後のものだけにする。
 ツール呼び出しの入力のうち、ユーザーに見せる文章（ネクストアクションの説明など）も入れる。
 
 ## 2. 1文ずつに分ける
