@@ -4,7 +4,7 @@
 import { mkdirSync } from "node:fs";
 import { homedir } from "node:os";
 import { join, resolve } from "node:path";
-import { PENDING_LIMITS, Refusal } from "./model.mjs";
+import { PENDING_LIMITS, Refusal, STALE_TURNS } from "./model.mjs";
 
 export const DATA_DIR = resolve(process.env.NEXT_ACTION_HOME || join(homedir(), ".local", "share", "next-action"));
 const DB_PATH = join(DATA_DIR, "next-action.sqlite");
@@ -343,7 +343,7 @@ export function startTurn(db, sid, repository, agentSessionId, ts) {
       agentSessionId ?? null,
       ts,
     );
-    return { turn, ...pendingSeqs(db, sid) };
+    return { turn, ...pendingSeqs(db, sid), ...staleSeqs(db, sid, turn) };
   });
 }
 
@@ -354,6 +354,16 @@ function pendingSeqs(db, sid) {
     pending_request_seqs: seqs("pending_user_requests"),
     pending_deferral_seqs: seqs("pending_deferrals"),
   };
+}
+
+// 未処理のうち、登録から STALE_TURNS ターン以上経ったもの。hook が数える前に登録したもの（created_turn が NULL）は入らない
+function staleSeqs(db, sid, turn) {
+  const seqs = (view) =>
+    db
+      .prepare(`SELECT seq FROM ${view} WHERE session_id = ? AND created_turn <= ? ORDER BY seq`)
+      .all(sid, turn - STALE_TURNS)
+      .map((r) => r.seq);
+  return { stale_seqs: seqs("pending_actions"), stale_request_seqs: seqs("pending_user_requests") };
 }
 
 const ACTION_COLUMNS = "session_id, seq, title, ok_forecast, need_forecast, risk_note, on_ok, on_ng, replaces_seq, created_at";

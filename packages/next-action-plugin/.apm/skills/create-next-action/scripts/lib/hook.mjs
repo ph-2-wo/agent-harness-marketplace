@@ -4,7 +4,7 @@ import { appendFileSync, mkdirSync, readFileSync, renameSync, writeFileSync } fr
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import { readStdin, repository, selfCommand } from "./common.mjs";
-import { isObject, isText } from "./model.mjs";
+import { isObject, isText, STALE_TURNS } from "./model.mjs";
 import { PAGE_PATH, writePage } from "./page.mjs";
 import { DATA_DIR, listPending, now, openDb, startTurn } from "./store.mjs";
 
@@ -73,6 +73,13 @@ export async function hookTurn() {
     lines.push(
       `後回し: ${r.pending_deferral_seqs.length}件`,
       "後回しにしたものに取り掛かれるタイミングになったら、list で中身を見て、register の JSON に resumes: <D の番号の数字> を付けて出す。",
+    );
+  }
+  const staleSeqs = [...r.stale_seqs.map((s) => `A${s}`), ...r.stale_request_seqs.map((s) => `R${s}`)];
+  if (staleSeqs.length) {
+    lines.push(
+      `登録から ${STALE_TURNS} ターン以上決着の無いもの: ${staleSeqs.join(", ")}`,
+      "今も要るかを考え、要らなければ withdraw、変えるなら replaces を付けて出し直す。",
     );
   }
   if (r.pending_seqs.length || r.pending_request_seqs.length || r.pending_deferral_seqs.length) {
