@@ -16,6 +16,9 @@ const DIFF_ADVICE =
 // 登録の前に max 件あれば登録を断る（replaces 付きの出し直しは件数が増えないので断らない）。登録の後に warn 件以上なら警告を出す。
 export const PENDING_LIMITS = { warn: 4, max: 5 };
 
+// 登録から何ターン決着が無ければ、古いものとしてエージェントに知らせるか。アクションと依頼に使う。後回しには使わない。
+export const STALE_TURNS = 3;
+
 // 記録の決まりに合わない入力。code・field・message を stderr に出す
 export class Refusal extends Error {
   constructor(code, message, field) {
