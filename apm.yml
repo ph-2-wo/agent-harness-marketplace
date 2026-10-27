@@ -78,3 +78,7 @@ marketplace:
       source: ./packages/subagent-plugin
       version: 0.1.0
       description: 組み込みのサブエージェントを上書きする agent 定義を提供
+    - name: slack-plugin
+      source: ./packages/slack-plugin
+      version: 0.1.0
+      description: Slack で自分宛てに来たものを時刻で区切って集める skill を提供
