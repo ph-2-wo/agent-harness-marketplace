@@ -20,6 +20,7 @@
 - `flexible-dev`: Plan から実装、self review、レビュー依頼までを進める
 - `instruction-management`: 指示の解釈・変更・解決状態を、根拠にした発言の時刻と一緒にファイルで管理する
 - `catch-up-on-history`: 直近の記録から前提の議論まで遡り、当初の依頼の原文まで読む
+- `hand-off-to-new-session`: 新しいセッションへの引き継ぎを、キャッチアップを頼む2〜3行に限る
 - `repeating-diamond`: 広げると収束を分けて繰り返し、案を絞り込む
 - `stepwise-system-design`: 作るものの設計を、抽象・土台から一段階ずつ決める
 
@@ -33,6 +34,7 @@ skill 間に依存がある。**依存先を一緒に install しないと機能
 | `flexible-dev` | `repeating-diamond`, `imitation-review`・`custom-review`（`review-plugin`）, `zero`（`communication-plugin`）, `structured-refactor`（`agent-base-plugin`） |
 | `instruction-management` | `structured-refactor`（`agent-base-plugin`） |
 | `catch-up-on-history` | なし |
+| `hand-off-to-new-session` | なし |
 | `repeating-diamond` | なし |
 | `stepwise-system-design` | `repeating-diamond` |
 
@@ -52,6 +54,8 @@ apm install dev-workflow-plugin@agent-harness-marketplace
 `instruction-management`: ユーザーから入力・返答があるたび、その回の作業を始める前。
 
 `catch-up-on-history`: 「経緯をキャッチアップして」と言われたとき。
+
+`hand-off-to-new-session`: 仕事を新しいセッションに引き継ぐとき。
 
 `repeating-diamond`: 案・方針・技術選定を検討するとき。
 
