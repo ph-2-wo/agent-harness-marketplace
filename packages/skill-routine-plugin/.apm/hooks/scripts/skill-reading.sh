@@ -26,7 +26,7 @@ SESSION_END
     ;;
   subagent)
     cat <<'SUBAGENT_END'
-{"hookSpecificOutput": {"hookEventName": "SubagentStart", "additionalContext": "作業を始める前に、次の順で進める。\n必要ないと思っても、全部の手順を必ずやる。\n1. この作業で使うスキルを選定する。少しでも関係するスキルは必ず使う。実装なら flexible-dev は必ず含める。\n2. 選定したスキルを使って進める。スキルの本文や作業の途中で別のスキルが出てきたら、選定になくてもそれも使う。"}}
+{"hookSpecificOutput": {"hookEventName": "SubagentStart", "additionalContext": "作業を始める前に、次の順で進める。\n必要ないと思っても、全部の手順を必ずやる。\n1. この作業で使うスキルを選定する。少しでも関係するスキルは必ず使う。実装なら flexible-dev は必ず含める。差分を作るなら custom-review は必ず含める。\n2. 選定したスキルを使って進める。スキルの本文や作業の途中で別のスキルが出てきたら、選定になくてもそれも使う。"}}
 SUBAGENT_END
     ;;
 esac
