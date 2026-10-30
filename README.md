@@ -13,7 +13,7 @@ APM は Microsoft 製の OSS で、agent 向けの skill・instruction などを
 | [agent-base-plugin](packages/agent-base-plugin/README.md) | 一切の依存を持たない、他 skill の土台になる skill |
 | [communication-plugin](packages/communication-plugin/README.md) | 説明・報告など、ユーザーへ何をどう伝えるかの skill |
 | [review-plugin](packages/review-plugin/README.md) | 実際に起きた問題から蓄積した観点の review と、模倣・ドキュメント・文書の最小化・skill の各種 review skill |
-| [dev-workflow-plugin](packages/dev-workflow-plugin/README.md) | 開発の現在地の判定から実装・レビュー依頼までの流れと、検討・設計・指示の管理など、仕事の進め方の skill |
+| [dev-workflow-plugin](packages/dev-workflow-plugin/README.md) | 開発の段階の判定から実装・レビュー依頼までの流れと、検討・設計・指示の管理など、仕事の進め方の skill |
 | [facilitation-plugin](packages/facilitation-plugin/README.md) | 振り返り会など、人と進める会の進め方の skill |
 | [harness-dev-plugin](packages/harness-dev-plugin/README.md) | ハーネス（CLAUDE.md・skill・hook）そのものを開発・整備する skill |
 | [pull-request-communication-plugin](packages/pull-request-communication-plugin/README.md) | commit の切り方と PR の作成など、PR を通したやり取りの skill |

@@ -25,7 +25,7 @@
     },
     {
       "name": "dev-workflow-plugin",
-      "description": "開発の現在地把握から実装・レビュー依頼までの流れと、検討・設計・指示の管理など、仕事の進め方の skill を提供",
+      "description": "開発の段階の判定から実装・レビュー依頼までの流れと、検討・設計・指示の管理など、仕事の進め方の skill を提供",
       "version": "0.1.0",
       "source": "./packages/dev-workflow-plugin"
     },

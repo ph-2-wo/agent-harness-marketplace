@@ -5,14 +5,14 @@ description: ユーザーから入力・返答があるたび、その回の作�
 
 # Instruction Management
 
-## Independent file for instruction memo management
+## Independent file for INSTRUCTION.md management
 
-独立したファイルで指示メモを管理する
+指示の解釈を独立したファイル `INSTRUCTION.md` で管理する
 
-- 指示メモはトピックごとに持つ
+- `INSTRUCTION.md` はトピックごとに持つ
 - そのトピックの記憶ディレクトリに `INSTRUCTION.md` として置く（例 `memory/<テーマ>/INSTRUCTION.md`）
-- 別のセッションで作った指示メモには追記せず、`INSTRUCTION-<セッション識別子>.md` として新しく作る
-- ただし、ユーザーに前のセッションの続きだと明示されたときは、そのセッションの指示メモに追記してよい
+- 別のセッションで作った `INSTRUCTION.md` には追記せず、`INSTRUCTION-<セッション識別子>.md` として新しく作る
+- ただし、ユーザーに前のセッションの続きだと明示されたときは、そのセッションの `INSTRUCTION.md` または `INSTRUCTION-<セッション識別子>.md` に追記してよい
 
 以下の形式を取る
 
@@ -23,18 +23,18 @@ description: ユーザーから入力・返答があるたび、その回の作�
 このセクションは1つであり、指示のたびに解釈セクションを増やしてはいけない
 1つの解釈セクションを管理し続けること
 
-ユーザー発言の原文は指示メモに写さない。原文はそのセッションのトランスクリプトにある
+ユーザー発言の原文は `INSTRUCTION.md` に写さない。原文はそのセッションのトランスクリプトにある
 
 ## Workflow
 
 入力・返答があるたび、その回の作業を始める前に実行する
 
-### 1. そのトピックの指示メモを開く
+### 1. そのトピックの `INSTRUCTION.md` を開く
 
 そのトピックの記憶ディレクトリの `INSTRUCTION.md` を見る
 
 無ければ上の形式で新規作成する
-新規作成したら、`workflow-placement` でそのトピックの現在地を決める
+新規作成したら、`workflow-placement` でそのトピックがどの段階にあるかを決める
 
 ### 2. その回の発言を反映する
 
