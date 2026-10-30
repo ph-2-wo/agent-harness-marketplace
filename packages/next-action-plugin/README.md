@@ -71,7 +71,7 @@ skill・instruction の間に依存がある。**依存先を一緒に install �
 
 | 部品 | 依存先 |
 |---|---|
-| `realign-with-original-request` | `create-next-action`（この package）、`instruction-management`（`dev-workflow-plugin`。要求の原文を指示メモから拾う） |
+| `realign-with-original-request` | `create-next-action`（この package）、`instruction-management`（`dev-workflow-plugin`。要求の原文を `INSTRUCTION.md` から拾う） |
 | `realign-with-original-request`（2の呼び出し） | `instruction-coverage-check`（この package）、`explanation-evidence-review`（`review-plugin`。`dev-workflow-plugin` 経由で入る） |
 | `instruction-coverage-check` | `create-next-action`（この package。CLI の結果を読む） |
 | `approval` | `create-next-action`（この package） |

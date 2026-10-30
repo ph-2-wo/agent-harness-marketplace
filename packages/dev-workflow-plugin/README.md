@@ -1,10 +1,10 @@
 # Dev Workflow Plugin
 
-仕事の進め方の skill package。開発の現在地の判定から実装・レビュー依頼までの流れと、指示の管理、案の検討、設計の決め方を担う。
+仕事の進め方の skill package。開発の段階の判定から実装・レビュー依頼までの流れと、指示の管理、案の検討、設計の決め方を担う。
 
 ## 入るもの・入らないもの
 
-- 入る: 仕事の流れの一段階（現在地の判定・指示を受ける・案を検討する・設計を決める・実装・self review・レビュー依頼）を担う skill
+- 入る: 仕事の流れの一段階（段階の判定・指示を受ける・案を検討する・設計を決める・実装・self review・レビュー依頼）を担う skill
 - 入らない: 仕事の流れの一段階ではない skill。commit の切り方と PR の作成（`pull-request-communication-plugin`）、成果物の review（`review-plugin`）、振り返り会（`facilitation-plugin`）、承認の求め方（`next-action-plugin`）
 
 セッションを開いた agent は、自分が開発のどの段階にいるかを判断しないまま作業を始める。
@@ -16,7 +16,7 @@
 
 ## Skills
 
-- `workflow-placement`: セッションの最初に使い、開発の現在地を判定して次の skill へ渡す
+- `workflow-placement`: セッションの最初に使い、開発がどの段階にあるかを判定して次の skill へ渡す
 - `flexible-dev`: Plan から実装、self review、レビュー依頼までを進める
 - `instruction-management`: 指示の解釈・変更・解決状態を、根拠にした発言の時刻と一緒にファイルで管理する
 - `catch-up-on-history`: 直近の記録から前提の議論まで遡り、当初の依頼の原文まで読む
