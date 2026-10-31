@@ -23,6 +23,7 @@
 - `hand-off-to-new-session`: 新しいセッションへの引き継ぎを、キャッチアップを頼む2〜3行に限る
 - `repeating-diamond`: 広げると収束を分けて繰り返し、案を絞り込む
 - `stepwise-system-design`: 作るものの設計を、抽象・土台から一段階ずつ決める
+- `test-design`: テストを、書く前に仕様・layer・単位を決めてから書く
 
 ## Dependency
 
@@ -31,12 +32,13 @@ skill 間に依存がある。**依存先を一緒に install しないと機能
 | skill | 依存先 |
 |---|---|
 | `workflow-placement` | `instruction-management`, `flexible-dev`, `zero`（`communication-plugin`） |
-| `flexible-dev` | `repeating-diamond`, `imitation-review`・`custom-review`（`review-plugin`）, `zero`（`communication-plugin`）, `structured-refactor`（`agent-base-plugin`） |
+| `flexible-dev` | `repeating-diamond`, `test-design`, `imitation-review`・`custom-review`（`review-plugin`）, `zero`（`communication-plugin`）, `structured-refactor`（`agent-base-plugin`） |
 | `instruction-management` | `structured-refactor`（`agent-base-plugin`） |
 | `catch-up-on-history` | なし |
 | `hand-off-to-new-session` | なし |
 | `repeating-diamond` | なし |
 | `stepwise-system-design` | `repeating-diamond` |
+| `test-design` | なし |
 
 依存先の package は `apm.yml` に書いてあり、この package を install すると一緒に入る。
 
@@ -60,3 +62,5 @@ apm install dev-workflow-plugin@agent-harness-marketplace
 `repeating-diamond`: 案・方針・技術選定を検討するとき。
 
 `stepwise-system-design`: 作るものの設計を決めるとき。
+
+`test-design`: テストを書くとき。
