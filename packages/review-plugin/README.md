@@ -27,7 +27,7 @@ skill 間に依存がある。**依存先を一緒に install しないと機能
 
 | skill | 依存先 |
 |---|---|
-| `custom-review` | `skill-review`（手順書の観点が参照する）、`document-minimization-review`、`documentation-review`、`imitation-review`、`harness-placement`（`harness-dev-plugin`）、`writing-docs`（`agent-base-plugin`）（振り分け表が案内する） |
+| `custom-review` | `skill-review`（手順書の観点が参照する）、`document-minimization-review`、`documentation-review`、`imitation-review`、`harness-placement`（`harness-dev-plugin`）、`writing-docs`（`agent-base-plugin`）（振り分け表が案内する）、`test-design`（`dev-workflow-plugin`。テストの観点が書き方の基準として名前で参照する。入っていなくても観点は単体で使える） |
 | `skill-review` | `document-minimization-review`、`harness-proceduralization`（`harness-dev-plugin`）、`structured-refactor`（`agent-base-plugin`） |
 | 上記以外 | なし（単体で機能する） |
 
