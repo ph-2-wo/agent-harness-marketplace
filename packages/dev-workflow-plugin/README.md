@@ -24,6 +24,7 @@
 - `repeating-diamond`: 広げると収束を分けて繰り返し、案を絞り込む
 - `stepwise-system-design`: 作るものの設計を、抽象・土台から一段階ずつ決める
 - `test-design`: テストを、書く前に仕様・layer・単位を決めてから書く
+- `test-restructure`: 既にあるテストを、`test-design` の形へ組み直す
 
 ## Dependency
 
@@ -39,6 +40,7 @@ skill 間に依存がある。**依存先を一緒に install しないと機能
 | `repeating-diamond` | なし |
 | `stepwise-system-design` | `repeating-diamond` |
 | `test-design` | なし |
+| `test-restructure` | `test-design` |
 
 依存先の package は `apm.yml` に書いてあり、この package を install すると一緒に入る。
 
@@ -64,3 +66,5 @@ apm install dev-workflow-plugin@agent-harness-marketplace
 `stepwise-system-design`: 作るものの設計を決めるとき。
 
 `test-design`: テストを書くとき。
+
+`test-restructure`: 既にあるテストを組み直すとき。
