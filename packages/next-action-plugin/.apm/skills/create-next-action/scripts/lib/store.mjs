@@ -320,6 +320,25 @@ export function deferAction(db, sid, seq, revisit_when) {
   });
 }
 
+// アクション seq から replaces の鎖を元へ辿り、sent_back の取り下げが何回続いているか（count）と、seq が出し直した元（prev）を返す。
+// seq 自身が sent_back で取り下げられていなければ count は 0。途中で sent_back 以外の決着か鎖の端に当たったら、そこで止める
+export function sentBackStreak(db, sid, seq) {
+  const step = db.prepare(
+    `SELECT a.replaces_seq, d.reason FROM actions a LEFT JOIN decisions d USING (session_id, seq)
+     WHERE a.session_id = ? AND a.seq = ?`,
+  );
+  let count = 0;
+  let prev = null;
+  for (let cur = seq; cur !== null; ) {
+    const row = step.get(sid, cur);
+    if (row?.reason !== "sent_back") break;
+    if (count === 0) prev = row.replaces_seq;
+    count++;
+    cur = row.replaces_seq;
+  }
+  return { count, prev };
+}
+
 export function decide(db, kind, sid, seq, outcome, reason, note) {
   return tx(db, () => {
     requirePending(db, kind, sid, seq);

@@ -22,6 +22,7 @@ import {
   registerAction,
   registerDeferral,
   registerUserRequest,
+  sentBackStreak,
 } from "./store.mjs";
 
 export function fail(msg) {
@@ -44,6 +45,25 @@ function refreshPage(db) {
   } catch (e) {
     process.stderr.write(`警告: ページを書き直せなかった（${PAGE_PATH}）: ${e?.message ?? e}\n`);
   }
+}
+
+// sent_back で取り下げたアクション seq が、同じ件で2回以上続けて差し戻されていれば realign-with-original-request を促す。
+// next は出し直しの番号（register のとき）。記録は済んでいるので、鎖を読めなくても警告だけ出して続ける
+function nudgeRealign(db, sid, seq, next) {
+  let streak;
+  try {
+    streak = sentBackStreak(db, sid, seq);
+  } catch (e) {
+    process.stderr.write(`警告: 差し戻しの連続を数えられなかった（A${seq}）: ${e?.message ?? e}\n`);
+    return;
+  }
+  if (streak.count < 2) return;
+  process.stdout.write(
+    `A${seq} は A${streak.prev} の出し直しで、同じ件で${streak.count}回続けて差し戻された。` +
+      (next === undefined
+        ? "出し直す前に realign-with-original-request を使う。\n"
+        : `realign-with-original-request を使い、当初の要求から外れていれば A${next} を replaces で出し直す。\n`),
+  );
 }
 
 const CLI_COMMANDS = ["register", "register-request", "register-deferral", "defer", "list", "approve", "withdraw", "complete"];
@@ -76,6 +96,7 @@ export async function cli(cmd, args, sid) {
           `警告: 未処理のネクストアクションが ${r.warning.pending} 件あります。認知負荷軽減のため、未処理は ${PENDING_LIMITS.max} 件までしか登録できません。\n`,
         );
       }
+      if (body.replaces?.reason === "sent_back") nudgeRealign(db, sid, body.replaces.seq, r.seq);
       return;
     }
     case "register-request": {
@@ -143,6 +164,7 @@ export async function cli(cmd, args, sid) {
       const turn = decide(db, ref.kind, sid, ref.seq, "withdrawn", reason, note);
       refreshPage(db);
       process.stdout.write(`${KINDS[ref.kind].prefix}${ref.seq} を取り下げとして記録した${turnNote(turn, reason)}\n`);
+      if (ref.kind === "action" && reason === "sent_back") nudgeRealign(db, sid, ref.seq);
       return;
     }
     case "complete": {
