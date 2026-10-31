@@ -9,11 +9,13 @@
 //                                登録後の未処理が PENDING_LIMITS.warn 件以上なら、次の行に警告を出す
 //                                未処理が PENDING_LIMITS.max 件あれば、登録できない旨を stderr に出して exit 1
 //                                JSON に resumes（D の番号の数字）を付けると、その後回しを戻したものとして記録する
+//                                replaces の reason が sent_back で、同じ件の差し戻しが2回以上続いたら、realign-with-original-request を促す行を出す
 //   na.mjs list                  未処理を人が読める形で出す
 //   na.mjs approve <seq>         承認を記録する
 //   na.mjs approve <seq> --partial   一部承認を記録する。note は標準入力
 //   na.mjs withdraw <seq> <reason>   取り下げを記録する。reason は rejected / sent_back / unneeded。note は標準入力（任意）
 //                                    <seq> が R 付き（R1）なら依頼の、D 付き（D1）なら後回しの取り下げ
+//                                    アクションの sent_back で、同じ件の差し戻しが2回以上続いたら、realign-with-original-request を促す行を出す
 //   na.mjs register-request      標準入力の JSON（{title, steps?, hand_back?, replaces?}）で依頼を 1 件登録し、R{seq} を出す
 //   na.mjs complete R<seq>       依頼の完了を記録する。note は標準入力（任意。受け取った値そのものは書かない）
 //   na.mjs defer A<seq>          アクションを後回しに移し、D{seq} を出す。revisit_when（いつ戻すかの条件）は標準入力
