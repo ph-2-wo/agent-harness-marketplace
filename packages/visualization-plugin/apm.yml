@@ -1,6 +1,6 @@
 name: visualization-plugin
 version: 0.1.0
-description: 表データ・数値データをグラフィカルに見せる方法のアイデア集の skill を提供
+description: 表データ・数値データの見せ方のアイデア集と、画面の UI のパターン集の skill を提供
 author: ph-2-wo
 license: MIT
 targets:

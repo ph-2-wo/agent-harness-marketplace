@@ -61,7 +61,7 @@
     },
     {
       "name": "visualization-plugin",
-      "description": "表データ・数値データをグラフィカルに見せる方法のアイデア集の skill を提供",
+      "description": "表データ・数値データの見せ方のアイデア集と、画面の UI のパターン集の skill を提供",
       "version": "0.1.0",
       "source": "./packages/visualization-plugin"
     },
