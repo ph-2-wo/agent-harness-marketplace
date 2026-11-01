@@ -19,7 +19,7 @@ APM は Microsoft 製の OSS で、agent 向けの skill・instruction などを
 | [pull-request-communication-plugin](packages/pull-request-communication-plugin/README.md) | commit の切り方と PR の作成など、PR を通したやり取りの skill |
 | [apm-dev-plugin](packages/apm-dev-plugin/README.md) | APM の機構に固有の skill 開発手順 |
 | [next-action-plugin](packages/next-action-plugin/README.md) | 承認を求める事項・ユーザーへの依頼・後回しを手元の CLI で記録し、未処理を1枚のページに出す skill と、それを前提にした承認の判定の instruction と、CLI のコマンドと未処理の番号をターンごとに差し込み登録の漏れを応答の終わりに確かめる hook |
-| [visualization-plugin](packages/visualization-plugin/README.md) | 表データ・数値データをグラフィカルに見せる方法のアイデア集の skill |
+| [visualization-plugin](packages/visualization-plugin/README.md) | 表データ・数値データの見せ方のアイデア集と、画面の UI のパターン集の skill |
 | [reply-gate-plugin](packages/reply-gate-plugin/README.md) | 応答の長さ・言語を機械的に確かめて差し戻す hook |
 | [skill-routine-plugin](packages/skill-routine-plugin/README.md) | skill を使う毎回の手順を注入する hook |
 | [skill-gate-plugin](packages/skill-gate-plugin/README.md) | 読み込んだ skill をタスクにし、決まった道具の前に skill を読み込ませる hook |
