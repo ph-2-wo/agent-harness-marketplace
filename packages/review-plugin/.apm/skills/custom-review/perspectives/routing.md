@@ -12,7 +12,7 @@
 | ページ（ウェブページ、Artifact） | `web-ui.md` |
 | 設定ファイル | `config.md` |
 | テストのコード（`*.test.*`・`*.spec.*`・`tests/`・`e2e/` など） | `test.md` |
-| 手順書（スキル、CLAUDE.md などのハーネスの部品を含む） | `procedures.md` |
+| 手順書（スキル、CLAUDE.md、hook が注入する文面などのハーネスの部品を含む） | `procedures.md` |
 | Markdown を含む文書 | `document-minimization-review` スキル、`documentation-review` スキル |
 | スキル | `skill-review` スキル |
 | ハーネスの部品（CLAUDE.md、instruction、スキルなど） | `harness-placement` スキル |
