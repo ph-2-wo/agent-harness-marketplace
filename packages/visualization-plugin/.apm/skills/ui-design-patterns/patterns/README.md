@@ -15,6 +15,7 @@
 | 見る範囲（リポジトリ・プロジェクト・セッションなど）が複数ある | [unified-inbox-sheet](unified-inbox-sheet.md) |
 | スマホで操作する画面に、操作（切り替え・コメント・絞り込みなど）を置く | [thumb-bottom-bar](thumb-bottom-bar.md) |
 | 既にある画面・アプリに、表示や機能を足す | [match-existing-ui](match-existing-ui.md) |
+| 画像や図を全画面で開き、指で拡大縮小できるようにする | [gesture-close-viewer](gesture-close-viewer.md) |
 | 表データ・数値データを図にする | `data-viz-ideas` スキル |
 
 ## パターンのファイルの見出し
