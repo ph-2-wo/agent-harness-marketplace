@@ -59,7 +59,7 @@ export async function hookTurn() {
   if (r.pending_seqs.length) {
     lines.push(
       `未処理のネクストアクション: ${r.pending_seqs.map((s) => `A${s}`).join(", ")}`,
-      `ユーザーの返事がこれらへの承認・取り下げに当たるなら、${cmd} approve <seq> / withdraw <seq> <reason> で記録する。`,
+      `ユーザーの返事が承認なら、承認された番号だけ実行し、チャットの返事なら ${cmd} approve <seq> で記録する。番号を挙げて外す返事は、その番号の取り下げで、残りの承認ではない（withdraw <seq> <reason> で記録する）。番号が無くても、案をそのまま受け入れる返事（「良さそう」など）は、出している全部の承認。疑問・指摘・反論なら実行しない。疑問には根拠の原文を読み直して先に答え、指摘・反論なら計画を直して出し直す。`,
     );
   }
   if (r.pending_request_seqs.length) {
