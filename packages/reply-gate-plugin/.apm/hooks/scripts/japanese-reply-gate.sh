@@ -25,7 +25,7 @@ latin = len(re.findall(r"[A-Za-z]", text))
 ja = len(re.findall(r"[぀-ヿ㐀-鿿]", text))
 if latin < 40 or ja >= (latin + ja) * 0.2:
     sys.exit(0)
-print(json.dumps({"decision": "block", "reason": "日本語で書き直して"}, ensure_ascii=False))
+print(json.dumps({"decision": "block", "reason": "日本語で書き直して。技術用語と名前のあるもの（環境変数・テーブル・migration・ファイル名・コマンド名など）は、訳したり一般語に言い換えたりせず、そのまま書く"}, ensure_ascii=False))
 PY
 )" 2>/dev/null
 exit 0
