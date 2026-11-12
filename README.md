@@ -25,6 +25,7 @@ APM は Microsoft 製の OSS で、agent 向けの skill・instruction などを
 | [skill-gate-plugin](packages/skill-gate-plugin/README.md) | 読み込んだ skill をタスクにし、決まった道具の前に skill を読み込ませる hook |
 | [subagent-plugin](packages/subagent-plugin/README.md) | 組み込みのサブエージェント（`Explore`）を安いモデルで動かすよう上書きする agent 定義 |
 | [slack-plugin](packages/slack-plugin/README.md) | Slack で自分宛てに来たものを時刻で区切って集める skill |
+| [information-trust-plugin](packages/information-trust-plugin/README.md) | 目にした情報のうち、どれに信頼を置き、どれを照らしてから使うかの instruction |
 
 ## Install APM CLI
 

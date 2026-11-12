@@ -94,6 +94,12 @@
       "description": "Slack で自分宛てに来たものを時刻で区切って集める skill を提供",
       "version": "0.1.0",
       "source": "./packages/slack-plugin"
+    },
+    {
+      "name": "information-trust-plugin",
+      "description": "目にした情報のうち、どれに信頼を置き、どれを照らしてから使うかの instruction を提供",
+      "version": "0.1.0",
+      "source": "./packages/information-trust-plugin"
     }
   ]
 }
