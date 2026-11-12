@@ -20,10 +20,11 @@ hook が求める skill が入っていない環境では、その規則では�
   hook からタスクを作る公式の方法は無いので、タスクのファイル（`~/.claude/tasks/` の下）を直接書く。
   ファイルの形は実測によるもので、Claude Code の版が変わると効かなくなりうる
 
-- `skill-gate`（`PreToolUse`、`Bash`・`Read`・`Edit`・`Write`・`mcp__github__create_pull_request`）: 決まった道具の呼び出しの前に、その手順を持つ skill をこのセッションで読み込んだかをトランスクリプトで見て、読み込んでいなければその呼び出しを止める。
+- `skill-gate`（`PreToolUse`、`Bash`・`Read`・`Edit`・`Write`・`Agent`・`mcp__github__create_pull_request`）: 決まった道具の呼び出しの前に、その手順を持つ skill をこのセッションで読み込んだかをトランスクリプトで見て、読み込んでいなければその呼び出しを止める。
   `mcp__github__create_pull_request` と `gh pr create` の前に `create-pull-request-generally` を、`na.mjs` の `register`・`register-request`・`register-deferral`・`defer` の前に `create-next-action` を求める。
   公開リポジトリ `agent-harness-marketplace` への PR と `push` の前に `agent-harness-marketplace-change` を求める。
   `.apm/skills/<名前>/SKILL.md` の編集と書き込みの前に `skill-review` を求める。
+  `Agent` の呼び出しの前に `write-subagent-brief` を求める。
   `.claude/skills/<名前>/SKILL.md` を `Read` や `cat`・`head`・`tail`・`sed`・`less` で直接読む前に、その `<名前>` の skill を求める。
   Skill で読み込まずに中身だけ使う抜け道を塞ぐためで、正本の `.apm/skills/` を読むのは止めない。
   1回の呼び出しで複数の規則に当たったときは、読み込んでいない skill をまとめて返す。
@@ -39,7 +40,7 @@ hook が求める skill が入っていない環境では、その規則では�
 
 | 部品 | 参照する skill |
 |---|---|
-| `skill-gate` | `create-pull-request-generally`（`pull-request-communication-plugin`）、`create-next-action`（`next-action-plugin`）、`skill-review`（`review-plugin`）。`agent-harness-marketplace-change` はこのリポジトリに無い |
+| `skill-gate` | `create-pull-request-generally`（`pull-request-communication-plugin`）、`create-next-action`（`next-action-plugin`）、`skill-review`（`review-plugin`）、`write-subagent-brief`（`dev-workflow-plugin`）。`agent-harness-marketplace-change` はこのリポジトリに無い |
 
 これらは参照するだけで、依存としては引かない。
 入っていない skill の規則では止めない。
