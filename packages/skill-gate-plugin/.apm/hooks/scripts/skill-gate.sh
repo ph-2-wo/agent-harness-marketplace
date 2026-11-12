@@ -6,7 +6,7 @@
 # 道具の呼び出しは毎回起きる出来事なので、ここに結び付ければ description の読み方に左右されない。
 # 読み込んだかは、トランスクリプトに Skill の tool_use があるかで見る。
 # その skill が入っていない環境では止めない（入っていない skill は読み込めないので、止め続けることになる）。
-# サブエージェントからの呼び出しは止めない（親のトランスクリプトを見ても、サブエージェントが読み込んだかは分からない）。
+# サブエージェントからの呼び出しは、サブエージェント自身のトランスクリプトで見る。見つからなければ止めない。
 # SKILL.md を cat や Read で直接読むのも止める。Skill で読み込まずに中身だけ使う抜け道を塞ぐため。
 # 正本の .apm/skills/ は読むのを止めない（編集のために読む場所なので）。
 # 失敗してもセッションは止めない（exit 0 固定）。
@@ -62,15 +62,17 @@ try:
     tool_input = d.get("tool_input") or {}
 except Exception:
     sys.exit(0)
-if d.get("agent_id"):
-    sys.exit(0)
 roots = [os.environ.get("CLAUDE_PROJECT_DIR") or d.get("cwd") or ".",
          os.environ.get("CLAUDE_CONFIG_DIR") or os.path.expanduser("~/.claude")]
 candidates = [s for s in required_skills(tool, tool_input) if is_installed(s, roots)]
 if not candidates:
     sys.exit(0)
+path = d.get("transcript_path") or ""
+agent_id = d.get("agent_id")
+if agent_id and not os.path.basename(path).startswith("agent-"):
+    path = os.path.join(os.path.splitext(path)[0], "subagents", "agent-" + re.sub(r"^agent-", "", agent_id) + ".jsonl")
 try:
-    with open(d["transcript_path"], encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         transcript = f.readlines()
 except Exception:
     sys.exit(0)
