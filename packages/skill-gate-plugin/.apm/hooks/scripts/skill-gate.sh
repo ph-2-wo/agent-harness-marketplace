@@ -24,6 +24,7 @@ RULES = [
     ("mcp__github__create_pull_request", "repo", r"^agent-harness-marketplace$", "agent-harness-marketplace-change"),
     ("Bash", "command", r"agent-harness-marketplace\S*\s+push\b", "agent-harness-marketplace-change"),
     ("Edit|Write", "file_path", r"/\.apm/skills/[^/]+/SKILL\.md$", "skill-review"),
+    ("Agent", None, None, "write-subagent-brief"),
     ("Read", "file_path", r"/\.claude/skills/([^/]+)/SKILL\.md$", None),
     ("Bash", "command", r"\b(?:cat|head|tail|sed|less)\b[^|;&]*\.claude/skills/([^/\s]+)/SKILL\.md", None),
 ]
