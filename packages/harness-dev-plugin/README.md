@@ -19,6 +19,7 @@
 - `harness-proceduralization`: ハーネス記述を再現性が十分な手順に落とし込む
 - `cross-case-procedure-draft`: 何回か試した事例を横断して評価し、手順のラフを作る
 - `procedure-draft-buildout`: 手順のラフに事例や調査を肉付けし、大枠から順に具体的な手順にする
+- `procedure-revision`: 既にある手順を、直す層を決めてその層から組み直し、失ったものと周りを確かめて直す
 
 ## Dependency
 
@@ -26,7 +27,7 @@ skill 間に依存がある。**依存先を一緒に install しないと機能
 
 | skill | 依存先 |
 |---|---|
-| `maintain-harness` | `harness-placement`, `harness-proceduralization`, `document-minimization-review`, `custom-review`（`review-plugin`）, `zero`（`communication-plugin`） |
+| `maintain-harness` | `harness-placement`, `harness-proceduralization`, `procedure-revision`, `document-minimization-review`, `custom-review`（`review-plugin`）, `zero`（`communication-plugin`） |
 | `cross-case-procedure-draft` | `organized-explain`（`communication-plugin`）, `procedure-draft-buildout` |
 | `procedure-draft-buildout` | `custom-review`（`review-plugin`）, `repeating-diamond`（`dev-workflow-plugin`） |
 | 上記以外 | なし（単体で機能する） |
