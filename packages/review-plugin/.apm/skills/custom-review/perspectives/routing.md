@@ -9,7 +9,7 @@
 | すべてのファイル | `general.md`、`imitation-review` スキル |
 | プログラムのコード | `code.md` |
 | シェルスクリプトと hook | `shell-hook.md` |
-| ページ（ウェブページ、Artifact） | `web-ui.md` |
+| ページと画面（ウェブページ、Artifact、画面のコンポーネントとスタイルシート） | `web-ui.md` |
 | 設定ファイル | `config.md` |
 | テストのコード（`*.test.*`・`*.spec.*`・`tests/`・`e2e/` など） | `test.md` |
 | 手順書（スキル、CLAUDE.md、hook が注入する文面などのハーネスの部品を含む） | `procedures.md` |
