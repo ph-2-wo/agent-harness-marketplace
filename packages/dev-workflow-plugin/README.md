@@ -25,7 +25,7 @@
 - `write-subagent-brief`: サブエージェントへの依頼文を、手段でなく目的・範囲・決まったことで書く
 - `repeating-diamond`: 広げると収束を分けて繰り返し、案を絞り込む
 - `stepwise-system-design`: 作るものの設計を、抽象・土台から一段階ずつ決める
-- `test-design`: テストを、書く前に仕様・layer・単位を決めてから書く
+- `test-design`: テストを、書く前に仕様・テストレベル・単位を決めてから書く
 - `test-restructure`: 既にあるテストを、`test-design` の形へ組み直す
 
 ## Dependency
