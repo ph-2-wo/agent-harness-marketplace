@@ -10,8 +10,9 @@ description: realign-with-original-request から呼ばれたときに使う。�
 
 ## 1. 指示を書き出す
 
-呼び出し元が渡した path がトランスクリプト。無ければ `ls -t ~/.claude/projects/*/${CLAUDE_SESSION_ID}.jsonl` の先頭。
-`type` が `user` の行のうち、テキストが `<` で始まらない発言を、古いものから全部書き出して番号を振る。
+`node "${CLAUDE_SKILL_DIR}/../create-next-action/scripts/na.mjs" list --include-decided --session ${CLAUDE_SESSION_ID}` で、返事とコメントを時刻つきで出す。
+チャットの発言は、呼び出し元が渡した path のトランスクリプト（無ければ `ls -t ~/.claude/projects/*/${CLAUDE_SESSION_ID}.jsonl` の先頭）から、`type` が `user` の行のうち、テキストが `<` で始まらないものを抜き出す。
+承認の記録の返事とコメントと、チャットの発言を合わせ、古いものから全部書き出して番号を振る。
 時刻を渡されたら、その時刻より後の発言だけにする。
 
 - 1つの発言に指示が複数あれば、分けて番号を振る
