@@ -17,6 +17,7 @@
 - 消えた要素は、あった位置に細い跡を残す。跡は送りの止まる位置にせず、続けて消えた要素の跡は1本の帯にまとめる。押すと元の大きさに開き、出ていた版の中身を選べる
 - 印は表示だけにし、開くボタンは要素の下の段に置く（[thumb-bottom-bar](thumb-bottom-bar.md)）
 - 前の版の中身は、開いたときに初めて読む
+- 開いた中身がスクロールする枠の見えている範囲から出るときは、出る分だけ枠を送る。中身が枠より高いときは、押した所が枠の上端に残る所で止める
 
 ## 使わない場面
 
@@ -35,6 +36,9 @@
   https://gerrit-review.googlesource.com/Documentation/user-review-ui.html
 - WhatsApp: 削除したメッセージの位置に "This message was deleted" を残す（二次）。
   https://techcrunch.com/?p=1560410
+- Apple Human Interface Guidelines の Scroll views: "automatically scroll the content only as much as necessary to help people retain context."
+  （訳: 自動で送るときは、文脈を保つのに要る分だけ送る。）
+  https://developer.apple.com/design/human-interface-guidelines/scroll-views
 
 ## 事例
 
@@ -44,3 +48,4 @@
   開くボタンが上にありすぎて押しづらいとされ、下の段に移した
 - 跡を送りの止まる位置にした作りは、基本見ない要素で送りが止まって使いづらいとして差し戻された
 - 全部の版の番号を並べた作りは、どこで変わったか分からないとして差し戻され、変わった所でだけ区切る形にした
+- 末尾の跡を押しても、開いた中身が枠の下に隠れて何も起きないように見えた。押した所を残して必要な分だけ送る形にし、直した動きを GIF で見せてから入れて通った
