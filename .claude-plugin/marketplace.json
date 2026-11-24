@@ -100,6 +100,12 @@
       "description": "目にした情報のうち、どれに信頼を置き、どれを照らしてから使うかの instruction を提供",
       "version": "0.1.0",
       "source": "./packages/information-trust-plugin"
+    },
+    {
+      "name": "keep-going-plugin",
+      "description": "決めたトークン量に届くまでターンの終わりを差し止める hook を提供",
+      "version": "0.1.0",
+      "source": "./packages/keep-going-plugin"
     }
   ]
 }

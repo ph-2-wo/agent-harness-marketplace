@@ -1,0 +1,15 @@
+name: keep-going-plugin
+version: 0.1.0
+description: 決めたトークン量に届くまでターンの終わりを差し止める hook を提供
+author: ph-2-wo
+license: MIT
+targets:
+  - claude
+
+dependencies:
+  apm: []
+  mcp: []
+includes: auto
+devDependencies:
+  apm: []
+scripts: {}
