@@ -89,4 +89,4 @@ marketplace:
     - name: keep-going-plugin
       source: ./packages/keep-going-plugin
       version: 0.1.0
-      description: 決めたトークン量に届くまでターンの終わりを差し止める hook を提供
+      description: ターンの終わりで止まらずに作業を続けさせる hook を提供

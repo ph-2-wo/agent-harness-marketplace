@@ -26,7 +26,7 @@ APM は Microsoft 製の OSS で、agent 向けの skill・instruction などを
 | [subagent-plugin](packages/subagent-plugin/README.md) | 組み込みのサブエージェント（`Explore`）を安いモデルで動かすよう上書きする agent 定義 |
 | [slack-plugin](packages/slack-plugin/README.md) | Slack で自分宛てに来たものを時刻で区切って集める skill |
 | [information-trust-plugin](packages/information-trust-plugin/README.md) | 目にした情報のうち、どれに信頼を置き、どれを照らしてから使うかの instruction |
-| [keep-going-plugin](packages/keep-going-plugin/README.md) | 決めたトークン量に届くまでターンの終わりを差し止める hook |
+| [keep-going-plugin](packages/keep-going-plugin/README.md) | ターンの終わりで止まらずに作業を続けさせる hook |
 
 ## Install APM CLI
 
