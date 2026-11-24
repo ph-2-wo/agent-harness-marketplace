@@ -1,4 +1,4 @@
-"""keep-going の Stop hook を、入口（keep-going.sh）に入力を渡して試す。
+"""keep-going の Stop hook を、keep-going.py に入力を渡して試す。
 
 守る仕様:
 - 設定ファイルが無いプロジェクトでは、何も出さず exit 0
@@ -14,7 +14,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-HOOK = Path(__file__).resolve().parent.parent / ".apm" / "hooks" / "scripts" / "keep-going.sh"
+HOOK = Path(__file__).resolve().parent.parent / ".apm" / "hooks" / "scripts" / "keep-going.py"
 
 
 def assistant(input_tokens=0, cache_read=0, cache_creation=0):
@@ -51,7 +51,7 @@ class Project:
         if not isinstance(stdin, str):
             stdin = json.dumps(stdin)
         return subprocess.run(
-            ["bash", str(HOOK)], input=stdin, capture_output=True, text=True, env=env, cwd=self.root
+            ["python3", str(HOOK)], input=stdin, capture_output=True, text=True, env=env, cwd=self.root
         )
 
 

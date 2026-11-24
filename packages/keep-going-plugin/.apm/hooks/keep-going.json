@@ -5,7 +5,7 @@
       "hooks": [
         {
           "type": "command",
-          "command": "bash ./scripts/keep-going.sh"
+          "command": "python3 ./scripts/keep-going.py"
         }
       ]
     }
