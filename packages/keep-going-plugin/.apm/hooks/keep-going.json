@@ -1,0 +1,13 @@
+{
+  "Stop": [
+    {
+      "matcher": "*",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 ./scripts/keep-going.py"
+        }
+      ]
+    }
+  ]
+}

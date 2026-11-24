@@ -100,6 +100,12 @@
       "description": "目にした情報のうち、どれに信頼を置き、どれを照らしてから使うかの instruction を提供",
       "version": "0.1.0",
       "source": "./packages/information-trust-plugin"
+    },
+    {
+      "name": "keep-going-plugin",
+      "description": "ターンの終わりで止まらずに作業を続けさせる hook を提供",
+      "version": "0.1.0",
+      "source": "./packages/keep-going-plugin"
     }
   ]
 }
