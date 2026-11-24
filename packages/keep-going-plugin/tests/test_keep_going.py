@@ -145,24 +145,6 @@ class KeepGoingTest(unittest.TestCase):
                     payload = {"transcript_path": p.transcript([json.dumps({"type": "user"})])}
                 assert_continues(self, p.run(payload))
 
-    def test_設定ファイルがあるときだけ判定をログに残す(self):
-        p = Project(self)
-        log = p.root / ".claude" / "keep-going.local.log"
-        t = p.transcript([assistant(input_tokens=100)])
-        p.run({"transcript_path": t})
-        self.assertFalse(log.exists())
-        p.config('{"max_context_tokens": 60000}')
-        p.run({"transcript_path": t})
-        p.config('{"max_context_tokens": 50}')
-        p.run({"transcript_path": t})
-        p.config('{"max_context_tokens": "x"}')
-        p.run({"transcript_path": t})
-        lines = log.read_text(encoding="utf-8").splitlines()
-        self.assertEqual(len(lines), 3)
-        self.assertIn("block: tokens=100 limit=60000", lines[0])
-        self.assertIn("stop: tokens=100 limit=50", lines[1])
-        self.assertIn("skip:", lines[2])
-
     def test_入力の_JSON_が壊れていても止めない(self):
         for name, stdin in {"壊れた JSON": "{not json", "空": "", "配列": "[]"}.items():
             with self.subTest(name):

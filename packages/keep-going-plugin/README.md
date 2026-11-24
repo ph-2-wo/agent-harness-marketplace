@@ -17,7 +17,7 @@ hook は入れた環境のすべてのセッションに効くので、他の ho
 
 - `keep-going`（`Stop`）: `.claude/keep-going.local.json` があり、その設定に届いていなければ、ターンの終わりを差し止める
 
-設定ファイルが無いセッションでは何もしない。あるときは、判定を `.claude/keep-going.local.log` に残す。
+設定ファイルが無いセッションでは何もしない。
 `python3` が要る。
 
 ## Usage
@@ -29,12 +29,12 @@ install したら、プロジェクトに `.claude/keep-going.local.json` を置
 
 ## 設定ファイルを git に載せない
 
-設定ファイルとログは、そのセッション限りのものなので git に載せない。
+設定ファイルは、そのセッション限りのものなので git に載せない。
 プロジェクトの `.gitignore` に次の1行を足す。
 すでに `.claude/*` を除外しているプロジェクトでは要らない。
 
 ```gitignore
-.claude/keep-going.local.*
+.claude/keep-going.local.json
 ```
 
 ## 上限
