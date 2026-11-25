@@ -80,6 +80,8 @@ class KeepGoingTest(unittest.TestCase):
         out = assert_blocked(self, p.run({"transcript_path": t}))
         self.assertIn("会話は 600 トークン", out["reason"])
         self.assertIn("上限 60000 ", out["reason"])
+        self.assertIn("コンテキストの容量ではありません", out["reason"])
+        self.assertIn(os.path.join(".claude", "keep-going.local.json") + " を消して", out["reason"])
 
     def test_使用量が_0_の行は会話の量とみなさない(self):
         p = Project(self)
