@@ -18,6 +18,7 @@
 | 画像や図を全画面で開き、指で拡大縮小できるようにする | [gesture-close-viewer](gesture-close-viewer.md) |
 | 縦に1つずつ送る画面で、離れた項目へ飛ぶ | [edge-index-rail](edge-index-rail.md) |
 | 説明の文に、読み手が知らなさそうな言葉が出る | [inline-term-sheet](inline-term-sheet.md) |
+| 溜まった項目を選んでまとめて消す | [bulk-select-list](bulk-select-list.md) |
 | 表データ・数値データを図にする | `data-viz-ideas` スキル |
 
 ## パターンのファイルの見出し
